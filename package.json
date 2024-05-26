@@ -1,0 +1,54 @@
+{
+  "name": "ollama-completion-streamer",
+  "displayName": "completion-streamer",
+  "description": "LLM Code completion with in-line token streaming",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "completion-streamer.setUri",
+        "title": "Set ollama URI for completion streamer"
+      },
+      {
+        "command": "completion-streamer.setModelName",
+        "title": "Set ollama model name for completion streamer"
+      },
+      {
+        "command": "completion-streamer.triggerCompletion",
+        "title": "Trigger a completion"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "alt+d",
+        "command": "completion-streamer.triggerCompletion",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.89.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "ws": "^8.17.0"
+  }
+}
